@@ -8,15 +8,13 @@ front = {
     return front.handlers();
   },
   handlers: function() {
+    front.scroll();
     return $(window).scroll(front.scroll);
   },
   scroll: function() {
     var header, st;
     st = front.cache.win.scrollTop();
     header = front.cache.header;
-    if (st > 500) {
-      return true;
-    }
     if (st < 40 && header.hasClass('small')) {
       header.removeClass('small').addClass('large');
     }
