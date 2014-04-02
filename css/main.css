@@ -1,6 +1,80 @@
 /* 
 stylus -w main.styl -o ../css/.  
- */
+*/
+.header {
+  background-color: #f5f5f5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.header > .logo {
+  float: left;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.header > .motto {
+  float: left;
+  color: grey3;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.header > .menu {
+  float: right;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.header > .menu > a {
+  display: block;
+  float: left;
+  border-bottom: 0.3em solid transparent;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.header > .menu > a:hover {
+  cursor: pointer;
+  border-bottom: 0.3em solid #800080;
+}
+.header.large > .logo {
+  font-size: 3em;
+  padding: 0 0 0 0.3em;
+}
+.header.large > .motto {
+  margin: 2.2em 0 0 0.5em;
+}
+.header.large > .menu > a {
+  padding: 1.7em 1em 0.5em 1em;
+  font-size: 1.2em;
+}
+.header.small > .logo {
+  font-size: 2em;
+  padding: 0 0 0 0.2em;
+}
+.header.small > .motto {
+  margin: 1em 0 0 0.5em;
+}
+.header.small > .menu > a {
+  padding: 1em 1em 0.2em 1em;
+  font-size: 1em;
+  border-bottom: 0.2em solid transparent;
+}
+.header.small > .menu > a:hover {
+  border-bottom: 0.2em solid #800080;
+}
 .clear {
   zoom: 1;
 }
@@ -14,58 +88,20 @@ stylus -w main.styl -o ../css/.
 }
 html,
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
+  background-color: #e5e5e5;
 }
 .container {
-  width: 960px;
-  margin: auto;
+  margin: 0;
+  padding: 0;
 }
-.header .logo {
-  float: left;
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 700;
-  font-size: 3em;
-  padding: 0 0 0 0.3em;
-}
-.header .motto {
-  float: left;
-  color: #979797;
-  margin: 2.2em 0 0 0.5em;
-}
-.header .menu {
-  float: right;
-}
-.header .menu > a {
-  display: block;
-  float: left;
-  padding: 1.7em 1em 0.5em 1em;
-  font-size: 1.2em;
-  border-bottom: 0.3em solid transparent;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-.header .menu > a:hover {
-  cursor: pointer;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-.header .menu > a.item-overview:hover {
-  color: #d37627;
-  border-bottom: 0.3em solid #d37627;
-}
-.header .menu > a.item-features:hover {
-  color: #f2d000;
-  border-bottom: 0.3em solid #f2d000;
-}
-.header .menu > a.item-pricing:hover {
-  color: #aed8f4;
-  border-bottom: 0.3em solid #aed8f4;
+.content {
+  margin: 3em 2em 2em 2em;
+  padding: 2em 1em;
+  min-height: 400em;
+  background-color: #fff;
 }

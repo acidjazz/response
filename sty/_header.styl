@@ -1,0 +1,54 @@
+.header
+  background-color grey2
+  position fixed
+  left 0
+  top 0
+  width 100%
+  > .logo
+    float left
+    font-family fnt_tit
+    font-weight 700
+    transition all 0.5s linear
+  > .motto
+    float left
+    color grey3
+    transition all 0.5s linear
+
+  > .menu
+    float right
+    transition all 0.5s linear
+    > a
+      display block
+      float left
+      border-bottom 0.3em solid transparent
+      transition all 0.5s linear
+      &:hover
+        cursor pointer
+        border-bottom 0.3em solid purple
+
+  &.large
+    > .logo
+      font-size 3em
+      padding 0 0 0 0.3em
+    > .motto
+      margin 2.2em 0 0 0.5em
+    > .menu
+      > a
+        padding 1.7em 1em 0.5em 1em
+        font-size 1.2em
+
+  &.small
+    > .logo
+      font-size 2em
+      padding 0 0 0 0.2em
+    > .motto
+      margin 1em 0 0 0.5em
+    > .menu
+      > a
+        padding 1em 1em 0.2em 1em
+        font-size 1em
+        border-bottom 0.2em solid transparent
+        &:hover
+          border-bottom 0.2em solid purple
+
+

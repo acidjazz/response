@@ -7,13 +7,19 @@ html(lang='en')
 
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     link(href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,700|Open+Sans:400,700,300',rel='stylesheet',type='text/css')
-
     link(rel='stylesheet',href='/css/main.css',type='text/css',media='all')
 
     script(type='text/javascript', src='/jst/lib/jquery.min.js')
+    each script in ['main','front']
+      script(type='text/javascript', src='/jst/' + script + '.js')
 
   body
     .container
+      include _header
       .content
         block content
 
+
+   script.
+
+    front.i();

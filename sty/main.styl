@@ -1,52 +1,30 @@
 /* 
 stylus -w main.styl -o ../css/.  
- */
+*/
 
 @import nib
 @import _vars
+
+@import _header
 
 .clear
   clearfix()
 
 html,body
+  margin 0
+  padding 0
   font-family fnt_open
-  font-size 14px
+  font-size 16px
   font-weight 300
+  background-color grey1
 
 .container
-  width 960px
-  margin auto
+  margin 0
+  padding 0
 
-.header
-  .logo
-    float left
-    font-family fnt_tit
-    font-weight 700
-    font-size 3em
-    padding 0 0 0 0.3em
-  .motto
-    float left
-    color grey3
-    margin 2.2em 0 0 0.5em
+.content
+  margin 3em 2em 2em 2em
+  padding 2em 1em
+  min-height 400em
+  background-color white
 
-  .menu
-    float right
-    > a
-      display block
-      float left
-      padding 1.7em 1em 0.5em 1em
-      font-size 1.2em
-      border-bottom 0.3em solid transparent
-      transition all 0.2s linear
-      &:hover
-        cursor pointer
-        transition all 0.2s linear
-      &.item-overview:hover
-        color orange1
-        border-bottom 0.3em solid orange1
-      &.item-features:hover
-        color yellow1
-        border-bottom 0.3em solid yellow1
-      &.item-pricing:hover
-        color lblue1
-        border-bottom 0.3em solid lblue1
