@@ -10,6 +10,7 @@ stylus -w main.styl -o ../css/.
 .header > .inner {
   background-color: #f5f5f5;
   border-bottom: 0.2em solid #e5e5e5;
+  padding: 0 3em;
 }
 .header > .inner > .logo {
   float: left;
@@ -54,7 +55,8 @@ stylus -w main.styl -o ../css/.
 }
 .header > .bottom {
   height: 0.2em;
-  background: rgba(245,245,245,0.8);
+  background: rgba(245,245,245,0.7);
+  margin: 0 3em;
 }
 .header.large > .inner > .logo {
   font-size: 6em;

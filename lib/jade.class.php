@@ -10,13 +10,8 @@ class jade {
 
     $path = G_PATH.self::$templatedir;
 
-    $constants = get_defined_constants(true);
-
-    $array['_c'] = $constants['user'];
-
-    if (!isset($array['pretty'])) {
-      $array['pretty'] = true;
-    }
+    $array['_c'] = get_defined_constants(true)['user'];
+    $array['pretty'] = true;
     $array['self'] = true;
 
     foreach (array('s' => isset($_SESSION) ? $_SESSION : array(), 'g' => $_GET, 'p' => $_POST, 'r' => $_REQUEST) as $k=>$v) {
@@ -32,15 +27,7 @@ class jade {
       return false;
     }
 
-    $result = self::post('http://localhost:3000/', $path.$template, $array);
-
-
-    if ($result['data'] == false && self::checkProcess() == false) {
-
-      self::startProcess();
-      $result = self::post('http://localhost:3000/', $path.$template, $array);
-
-    }
+    $result = node::post('jade', 'http://localhost:3000/', ['file' => $path.$template], $array);
 
     if ($result['status'] == 500) {
 
@@ -65,37 +52,5 @@ class jade {
 
   }
 
-  private static function post($url, $file, $data) {
-
-    $handler = curl_init();
-    $headers = array( 'Content-Type: text/html');
-
-    $params = ['file' => $file, 'data' => $data];
-
-    curl_setopt($handler, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($handler, CURLOPT_POST, true);
-    curl_setopt($handler, CURLOPT_POSTFIELDS, json_encode($params));
-
-    curl_setopt($handler, CURLOPT_URL, $url);
-
-    $data = curl_exec($handler);
-
-    return ['status' => curl_getinfo($handler, CURLINFO_HTTP_CODE), 'data' => $data];
-
-  }
-
-  private static function checkProcess() {
-    exec('pgrep -xlf "node srv/jade_web.js"', $output);
-    if (count($output) < 1) {
-      return false;
-    }
-    return true;
-  }
-
-  private static function startProcess() {
-    exec('node srv/jade_web.js > /dev/null 2>&1 &', $output, $return);
-    sleep(1);
-  }
 
 }
